@@ -53,7 +53,7 @@ contract("Loot", accounts => {
   });
 
   describe("indexing", async () => {
-    it("lists colors", async () => {
+    it("list items", async () => {
       //Mint 2 tokens
       await contract.mint("#5386E4");
       await contract.mint("#000000");

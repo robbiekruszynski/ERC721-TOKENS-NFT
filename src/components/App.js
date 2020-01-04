@@ -27,6 +27,7 @@ class App extends Component {
 
     const networkId = await web3.eth.net.getId();
     const networkData = Loot.networks[networkId];
+    console.log("pre network data load");
 
     if (networkData) {
       const abi = Loot.abi;
@@ -35,6 +36,7 @@ class App extends Component {
       this.setState({ contract });
       const totalSupply = await contract.methods.totalSupply().call();
       this.setState({ totalSupply });
+      console.log("pre color load");
 
       // // Load Colors
       for (var i = 1; i <= totalSupply; i++) {
@@ -42,6 +44,7 @@ class App extends Component {
         this.setState({
           items: [...this.state.items, item]
         });
+        console.log("is this working?");
         console.log(this.state.items);
       }
     } else {
@@ -50,16 +53,16 @@ class App extends Component {
     }
   }
 
-  // mint = item => {
-  //   this.state.contract.methods
-  //     .mint(item)
-  //     .send({ from: this.state.account })
-  //     .once("receipt", receipt => {
-  //       this.setState({
-  //         items: [...this.state.items, item]
-  //       });
-  //     });
-  // };
+  mint = item => {
+    this.state.contract.methods
+      .mint(item)
+      .send({ from: this.state.account })
+      .once("receipt", receipt => {
+        this.setState({
+          items: [...this.state.items, item]
+        });
+      });
+  };
 
   constructor(props) {
     super(props);
@@ -95,13 +98,45 @@ class App extends Component {
           <div className="row">
             <main role="main" className="col-lg-12 d-flex text-center">
               <div className="content mr-auto ml-auto">
-                {/* FORM GOES HERE*/}
+                <h1> Issue Token</h1>
+                <form
+                  onSubmit={event => {
+                    event.preventDefault();
+                    const item = this.item.value;
+                    this.mint(item);
+                  }}
+                >
+                  <input
+                    type="text"
+                    className="form-control mb-1"
+                    placeholder="#colorHEX"
+                    ref={input => {
+                      this.item = input;
+                    }}
+                  />
+                  <input
+                    type="submit"
+                    className="btn btn-block btn-primary"
+                    value="MINT"
+                  />
+                </form>
               </div>
             </main>
           </div>
           <hr />
           <div className="row text-center">
-            <p>Tokens go here...</p>
+            {this.state.items.map((item, key) => {
+              return (
+                <div key={key} className="col-md-3 mb-3">
+                  <div
+                    className="token"
+                    style={{ backgroundColor: item }}
+                  ></div>
+                  <div>[item]</div>
+                  <p>Tokens go here...</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

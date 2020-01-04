@@ -1880,12 +1880,12 @@
         }
       },
       "links": {},
-      "address": "0xd7d25E7aFccd612579d73361dDf2A0548A4D5F79",
-      "transactionHash": "0x87b5f6e7d16812d24f08b49a972b0a7b89f26a9ae11d427bdedae803723417ab"
+      "address": "0x3fDFF8Ec57826d7462A47b8E506575531C329821",
+      "transactionHash": "0x36dedd5c03fdcf58ff69cb4b238333c819b396386b6c506b9865923dcc3414e9"
     }
   },
   "schemaVersion": "3.0.13",
-  "updatedAt": "2020-01-04T04:44:56.878Z",
+  "updatedAt": "2020-01-04T05:09:44.662Z",
   "devdoc": {
     "methods": {
       "approve(address,uint256)": {

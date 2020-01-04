@@ -476,14 +476,14 @@
           }
         ],
         "contractDependencies": [
-          508,
-          1162,
-          1497,
-          1518,
           26,
           35,
-          1137,
           136,
+          1497,
+          1518,
+          508,
+          1137,
+          1162,
           1645,
           1665
         ],
@@ -1166,14 +1166,14 @@
           }
         ],
         "contractDependencies": [
-          508,
-          1162,
-          1497,
-          1518,
           26,
           35,
-          1137,
           136,
+          1497,
+          1518,
+          508,
+          1137,
+          1162,
           1645,
           1665
         ],
@@ -1880,12 +1880,12 @@
         }
       },
       "links": {},
-      "address": "0xE4872703512249FF5E5c505c72A614BB41844AA9",
-      "transactionHash": "0x2d3b59d21b17383f6936c8e2a87014931bea24c3c131604585e05ba188012dfb"
+      "address": "0xd7d25E7aFccd612579d73361dDf2A0548A4D5F79",
+      "transactionHash": "0x87b5f6e7d16812d24f08b49a972b0a7b89f26a9ae11d427bdedae803723417ab"
     }
   },
   "schemaVersion": "3.0.13",
-  "updatedAt": "2020-01-04T03:44:09.298Z",
+  "updatedAt": "2020-01-04T04:44:56.878Z",
   "devdoc": {
     "methods": {
       "approve(address,uint256)": {

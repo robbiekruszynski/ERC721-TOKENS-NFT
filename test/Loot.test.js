@@ -34,11 +34,10 @@ contract("Loot", accounts => {
 
   describe("minting", async () => {
     it("creates a new token", async () => {
-      const result = await contract.mint("EC058E");
+      const result = await contract.mint("#EC058E");
       const totalSupply = await contract.totalSupply();
-      //SUCCESS
+      // SUCCESS
       assert.equal(totalSupply, 1);
-      console.log(result);
       const event = result.logs[0].args;
       assert.equal(event.tokenId.toNumber(), 1, "id is correct");
       assert.equal(
@@ -46,30 +45,29 @@ contract("Loot", accounts => {
         "0x0000000000000000000000000000000000000000",
         "from is correct"
       );
+      assert.equal(event.to, accounts[0], "to is correct");
 
-      assert.equal(event.to, accounts[0], "to is corrrect");
+      // FAILURE: cannot mint same color twice
+      await contract.mint("#EC058E").should.be.rejected;
     });
-
-    //Failure
-    await contract.mint("#EC058E").should.be.rejected;
   });
-});
 
-describe("indexing", async () => {
-  it("lists colors", async () => {
-    //Mint 2 tokens
-    await contract.mint("#5386E4");
-    await contract.mint("#000000");
-    const totalSupply = await contract.totalSupply();
+  describe("indexing", async () => {
+    it("lists colors", async () => {
+      //Mint 2 tokens
+      await contract.mint("#5386E4");
+      await contract.mint("#000000");
+      const totalSupply = await contract.totalSupply();
 
-    let colors;
-    let result = [];
+      let item;
+      let result = [];
 
-    for (var i = 1; i <= totalSupply; i++) {
-      color = await contract.items(i - 1);
-      result.push(color);
-    }
-    let expected = ["#EC058E", "#5386E4", "#000000"];
-    assert.equal(result.join(","), expected.join(","));
+      for (var i = 1; i <= totalSupply; i++) {
+        item = await contract.items(i - 1);
+        result.push(item);
+      }
+      let expected = ["#EC058E", "#5386E4", "#000000"];
+      assert.equal(result.join(","), expected.join(","));
+    });
   });
 });

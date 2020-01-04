@@ -4,6 +4,11 @@ import logo from "../logo.png";
 import "./App.css";
 
 class App extends Component {
+  async componentWillMount() {
+    await this.loadWeb3();
+    await this.loadBlockchainData();
+  }
+
   async loadWeb3() {
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
@@ -14,6 +19,20 @@ class App extends Component {
       window.alert("non-eth browser dected. GET TO DA METAMASK!");
     }
   }
+  async loadBlockchainData() {
+    const web3 = window.web3;
+    //load account
+    const accounts = await web3.eth.getAccounts();
+    this.setState({ account: accounts[0] });
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      account: " "
+    };
+  }
+
   render() {
     return (
       <div>
@@ -26,6 +45,13 @@ class App extends Component {
           >
             Loot Tokens
           </a>
+          <ul className="navbar-nav px-3">
+            <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
+              <small className="text-white">
+                <span id="account">{this.state.account} </span>
+              </small>
+            </li>
+          </ul>
         </nav>
         <div className="container-fluid mt-5">
           <div className="row">

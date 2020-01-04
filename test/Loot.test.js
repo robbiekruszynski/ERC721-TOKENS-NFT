@@ -49,5 +49,27 @@ contract("Loot", accounts => {
 
       assert.equal(event.to, accounts[0], "to is corrrect");
     });
+
+    //Failure
+    await contract.mint("#EC058E").should.be.rejected;
+  });
+});
+
+describe("indexing", async () => {
+  it("lists colors", async () => {
+    //Mint 2 tokens
+    await contract.mint("#5386E4");
+    await contract.mint("#000000");
+    const totalSupply = await contract.totalSupply();
+
+    let colors;
+    let result = [];
+
+    for (var i = 1; i <= totalSupply; i++) {
+      color = await contract.items(i - 1);
+      result.push(color);
+    }
+    let expected = ["#EC058E", "#5386E4", "#000000"];
+    assert.equal(result.join(","), expected.join(","));
   });
 });

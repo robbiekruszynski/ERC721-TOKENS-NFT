@@ -1,7 +1,9 @@
 pragma solidity  ^0.5.0;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721Full.sol";
+import "./ERC721Full.sol";
 
-contract Loot {
-    
+contract Loot is ERC721Full {
+    constructor() ERC721Full("item", "ITEM") public {
+
+     }
 }

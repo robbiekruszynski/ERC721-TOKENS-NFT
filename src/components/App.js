@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Web3 from "web3";
 import Loot from "../abis/Loot.json";
 import "./App.css";
-import Button from "@material-ui/core/Button";
+import { Switch, Route } from "react-router-dom";
+import AppJs from "./AppJs.js";
 
 class App extends Component {
   async componentWillMount() {
@@ -97,6 +98,7 @@ class App extends Component {
             </li>
           </ul>
         </nav>
+        <AppJs />
         <div className="container-fluid mt-5">
           <div className="row">
             <main role="main" className="col-lg-12 d-flex text-center">

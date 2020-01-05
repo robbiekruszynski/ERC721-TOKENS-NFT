@@ -4,6 +4,7 @@
   "description": "An Ethereum Marketplace",
   "author": "wave_dash",
   "dependencies": {
+    "@material-ui/core": "^4.8.2",
     "@openzeppelin/contracts": "^2.4.0",
     "babel-polyfill": "6.26.0",
     "babel-preset-env": "1.7.0",

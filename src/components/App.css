@@ -1,13 +1,16 @@
 /* Styles go here */
 
-* {
-  border: 1px solid green;
+.container {
+  border: 10px solid blue;
+  height: 100vh;
+  width: 100vw;
 }
+
 .token {
   height: 150px;
-  widows: 150px;
+  width: 150px;
   border-radius: 50%;
   display: incline-block;
   background-color: black;
-  border: 1px solid red;
+  border: 5px solid black;
 }

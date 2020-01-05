@@ -1,7 +1,5 @@
-/* Styles go here */
-
 .container {
-  border: 10px solid blue;
+  border: 5px solid blue;
   height: 100vh;
   width: 100vw;
 }
@@ -12,5 +10,10 @@
   border-radius: 50%;
   display: incline-block;
   background-color: black;
-  border: 5px solid black;
+  border: 1px solid lightgrey;
+}
+
+h3 {
+  margin-left: 1%;
+  color: white;
 }

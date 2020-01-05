@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Web3 from "web3";
 import Loot from "../abis/Loot.json";
 import "./App.css";
+import Button from "@material-ui/core/Button";
 
 class App extends Component {
   async componentWillMount() {
@@ -100,7 +101,7 @@ class App extends Component {
           <div className="row">
             <main role="main" className="col-lg-12 d-flex text-center">
               <div className="content mr-auto ml-auto">
-                <h1> Issue Token</h1>
+                <h1> Create your token</h1>
                 <form
                   onSubmit={event => {
                     event.preventDefault();
@@ -111,7 +112,7 @@ class App extends Component {
                   <input
                     type="text"
                     className="form-control mb-1"
-                    placeholder="#colorHEX"
+                    placeholder="#hex value of a color"
                     ref={input => {
                       this.item = input;
                     }}
@@ -134,8 +135,8 @@ class App extends Component {
                     className="token"
                     style={{ backgroundColor: item }}
                   ></div>
-                  <div>[item]</div>
-                  <p>Tokens go here...</p>
+                  <div>{item}</div>
+                  <div>{address}</div>
                 </div>
               );
             })}

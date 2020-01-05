@@ -17,8 +17,6 @@ contract Loot is ERC721Full {
          uint _id = items.push(_item);
          _mint(msg.sender, _id);
          _itemExists[_item] = true;
-         // Item - add
-         //call the mint function 
-         //tack it 
+       
      }
 }

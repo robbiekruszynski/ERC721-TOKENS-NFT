@@ -136,7 +136,6 @@ class App extends Component {
                     style={{ backgroundColor: item }}
                   ></div>
                   <div>{item}</div>
-                  <div>{address}</div>
                 </div>
               );
             })}

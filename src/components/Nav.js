@@ -3,6 +3,7 @@ import Web3 from "web3";
 import Loot from "../abis/Loot.json";
 import "./App.css";
 import { Switch, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Nav extends Component {
   async componentWillMount() {
@@ -43,7 +44,6 @@ class Nav extends Component {
         this.setState({
           items: [...this.state.items, item]
         });
-       
       }
     } else {
       window.alert("Smart contract not deployed to detected network.");
@@ -73,12 +73,7 @@ class Nav extends Component {
   render() {
     return (
       <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-        <a>
-          <h3>Loot Tokens</h3>
-        </a>
-        <span id="account">{this.state.account} </span>
-
-        <h4>NAVBAR</h4>
+        <h3>Token Mill</h3>
 
         <ul className="navbar-nav px-3">
           <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">

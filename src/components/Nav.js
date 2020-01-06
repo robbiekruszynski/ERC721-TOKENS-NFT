@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Web3 from "web3";
 import Loot from "../abis/Loot.json";
 import "./App.css";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Router } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Three } from "./Three";
 
@@ -76,6 +76,7 @@ class Nav extends Component {
       <nav className="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
         <h3>Token Mill</h3>
         <Three />
+        <button>THREEjs</button>
 
         <ul className="navbar-nav px-3">
           <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
